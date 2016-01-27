@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+
+<!DOCTYPE ServicesConfiguration PUBLIC "=//iPlanet//Service Management Services (SMS) 1.0 DTD//EN"  "jar://com/sun/identity/sm/sms.dtd">
+<ServicesConfiguration>
+	<Service name="iPlanetAMAuthImpersonationModuleService"
+		version="1.0">
+		<Schema
+			serviceHierarchy="/DSAMEConfig/authentication/iPlanetAMAuthImpersonationModuleService"
+			i18nFileName="amAuthImpersonationModule" revisionNumber="10"
+			i18nKey="challenge-response-service-description">
+		  <Organization>
+                	<AttributeSchema name="iplanet-am-auth-impersonation-auth-level"
+                    		type="single"
+                    		syntax="number_range" rangeStart="0" rangeEnd="2147483647"
+                    		i18nKey="a500">
+            			<DefaultValues>
+                        		<Value>1</Value>
+	            		</DefaultValues>
+                	</AttributeSchema>
+                	<AttributeSchema name="iplanet-am-auth-impersonation-group-name"
+                    		type="single"
+                    		syntax="string"
+                    		i18nKey="a501">
+            			<DefaultValues>
+                        		<Value>impersonation</Value>
+	            		</DefaultValues>
+                	</AttributeSchema>
+                	<AttributeSchema name="iplanet-am-auth-impersonation-id"
+                    		type="single"
+                    		syntax="string"
+                    		i18nKey="a503">
+            			<DefaultValues>
+                        		<Value>Enter the user id to impersonate?</Value>
+	            		</DefaultValues>
+                	</AttributeSchema>
+                	<AttributeSchema name="iplanet-am-auth-resource-set"
+                    		type="single"
+                    		syntax="string"
+                    		i18nKey="a504">
+            			<DefaultValues>
+                        		<Value>Resource Set</Value>
+	            		</DefaultValues>
+                	</AttributeSchema>
+                	<AttributeSchema name="iplanet-am-auth-policy-realm"
+                    		type="single"
+                    		syntax="string"
+                    		i18nKey="a505">
+            			<DefaultValues>
+                        		<Value>Policy realm</Value>
+	            		</DefaultValues>
+                	</AttributeSchema>
+                	<AttributeSchema name="iplanet-am-auth-authentication-realm"
+                    		type="single"
+                    		syntax="string"
+                    		i18nKey="a506">
+            			<DefaultValues>
+                        		<Value>Authentication realm</Value>
+	            		</DefaultValues>
+                	</AttributeSchema>
+                	<AttributeSchema name="iplanet-am-auth-policy-set-name"
+                    		type="single"
+                    		syntax="string"
+                    		i18nKey="a507">
+            			<DefaultValues>
+                        		<Value>Policy Set or Application name</Value>
+	            		</DefaultValues>
+                	</AttributeSchema>
+                	<AttributeSchema name="iplanet-am-auth-check-group-membership"
+                    		type="single"
+                    		syntax="string"
+                    		i18nKey="a508">
+            			<DefaultValues>
+                        		<Value>True</Value>
+	            		</DefaultValues>
+                	</AttributeSchema>
+                	<AttributeSchema name="iplanet-am-auth-openam-server"
+                    		type="single"
+                    		syntax="string"
+                    		i18nKey="a509">
+            			<DefaultValues>
+                        		<Value>http://ec2-54-67-72-146.us-west-1.compute.amazonaws.com:8080/openam</Value>
+	            		</DefaultValues>
+                	</AttributeSchema>
+
+ 
+                	<SubSchema name="serverconfig" inheritance="multiple">
+                    		<AttributeSchema name="iplanet-am-auth-impersonation-auth-level"
+                       	 		type="single"
+		                        syntax="number_range" rangeStart="0" rangeEnd="2147483647"
+                		        i18nKey="a500">
+		                        <DefaultValues>
+        		                    <Value>1</Value>
+                		        </DefaultValues>
+	                       </AttributeSchema>
+	                       <AttributeSchema name="iplanet-am-auth-impersonation-group-name"
+                    		type="single"
+                    		syntax="string"
+                    		i18nKey="a501">
+            			<DefaultValues>
+                        		<Value>impersonation</Value>
+	            		</DefaultValues>
+                	</AttributeSchema>
+                	<AttributeSchema name="iplanet-am-auth-impersonation-hash-enabled"
+                    		type="single"
+                    		syntax="boolean"
+                    		i18nKey="a502">
+            			<DefaultValues>
+                        		<Value>true</Value>
+	            		</DefaultValues>
+                	</AttributeSchema>
+                	<AttributeSchema name="iplanet-am-auth-impersonation-id"
+                    		type="single"
+                    		syntax="string"
+                    		i18nKey="a503">
+            			<DefaultValues>
+                        		<Value>Enter the user id to impersonate?</Value>
+	            		</DefaultValues>
+                	</AttributeSchema>
+                	<AttributeSchema name="iplanet-am-auth-resource-set"
+                    		type="single"
+                    		syntax="string"
+                    		i18nKey="a504">
+            			<DefaultValues>
+                        		<Value>Resource Set</Value>
+	            		</DefaultValues>
+                	</AttributeSchema>
+                	<AttributeSchema name="iplanet-am-auth-policy-realm"
+                    		type="single"
+                    		syntax="string"
+                    		i18nKey="a505">
+            			<DefaultValues>
+                        		<Value>Policy realm</Value>
+	            		</DefaultValues>
+                	</AttributeSchema>
+                	<AttributeSchema name="iplanet-am-auth-authentication-realm"
+                    		type="single"
+                    		syntax="string"
+                    		i18nKey="a506">
+            			<DefaultValues>
+                        		<Value>Authentication realm</Value>
+	            		</DefaultValues>
+                	</AttributeSchema>
+                	<AttributeSchema name="iplanet-am-auth-policy-set-name"
+                    		type="single"
+                    		syntax="string"
+                    		i18nKey="a507">
+            			<DefaultValues>
+                        		<Value>Policy Set or Application name</Value>
+	            		</DefaultValues>
+                	</AttributeSchema>
+                	<AttributeSchema name="iplanet-am-auth-check-group-membership"
+                    		type="single"
+                    		syntax="string"
+                    		i18nKey="a508">
+            			<DefaultValues>
+                        		<Value>True</Value>
+	            		</DefaultValues>
+                	</AttributeSchema>
+                	<AttributeSchema name="iplanet-am-auth-openam-server"
+                    		type="single"
+                    		syntax="string"
+                    		i18nKey="a509">
+            			<DefaultValues>
+                        		<Value>http://ec2-54-67-72-146.us-west-1.compute.amazonaws.com:8080/openam</Value>
+	            		</DefaultValues>
+                	</AttributeSchema>
+           	      </SubSchema>
+            	  </Organization>
+		</Schema>
+	</Service>
+</ServicesConfiguration>

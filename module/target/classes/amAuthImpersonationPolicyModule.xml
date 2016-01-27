@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+
+<!DOCTYPE ServicesConfiguration PUBLIC "=//iPlanet//Service Management Services (SMS) 1.0 DTD//EN"  "jar://com/sun/identity/sm/sms.dtd">
+<ServicesConfiguration>
+	<Service name="iPlanetAMAuthImpersonationPolicyModuleService"
+		version="1.0">
+		<Schema
+			serviceHierarchy="/DSAMEConfig/authentication/iPlanetAMAuthImpersonationPolicyModuleService"
+			i18nFileName="amAuthImpersonationPolicyModule" revisionNumber="10"
+			i18nKey="challenge-response-service-description">
+		  <Organization>
+                	<AttributeSchema name="iplanet-am-auth-impersonation-policy-auth-level"
+                    		type="single"
+                    		syntax="number_range" rangeStart="0" rangeEnd="2147483647"
+                    		i18nKey="a500">
+            			<DefaultValues>
+                        		<Value>1</Value>
+	            		</DefaultValues>
+                	</AttributeSchema>
+                	<AttributeSchema name="iplanet-am-auth-impersonation-policy-group-name"
+                    		type="single"
+                    		syntax="string"
+                    		i18nKey="a501">
+            			<DefaultValues>
+                        		<Value>impersonation-policy</Value>
+	            		</DefaultValues>
+                	</AttributeSchema>
+                	<AttributeSchema name="iplanet-am-auth-impersonation-policy-id"
+                    		type="single"
+                    		syntax="string"
+                    		i18nKey="a503">
+            			<DefaultValues>
+                        		<Value>Enter the user id to impersonate?</Value>
+	            		</DefaultValues>
+                	</AttributeSchema>
+                	<AttributeSchema name="iplanet-am-auth-resource-set"
+                    		type="single"
+                    		syntax="string"
+                    		i18nKey="a504">
+            			<DefaultValues>
+                        		<Value>Resource Set</Value>
+	            		</DefaultValues>
+                	</AttributeSchema>
+ 
+                	<SubSchema name="serverconfig" inheritance="multiple">
+                    		<AttributeSchema name="iplanet-am-auth-impersonation-policy-auth-level"
+                       	 		type="single"
+		                        syntax="number_range" rangeStart="0" rangeEnd="2147483647"
+                		        i18nKey="a500">
+		                        <DefaultValues>
+        		                    <Value>1</Value>
+                		        </DefaultValues>
+	                       </AttributeSchema>
+	                       <AttributeSchema name="iplanet-am-auth-impersonation-policy-group-name"
+                    		type="single"
+                    		syntax="string"
+                    		i18nKey="a501">
+            			<DefaultValues>
+                        		<Value>impersonation-policy</Value>
+	            		</DefaultValues>
+                	</AttributeSchema>
+                	<AttributeSchema name="iplanet-am-auth-impersonation-policy-hash-enabled"
+                    		type="single"
+                    		syntax="boolean"
+                    		i18nKey="a502">
+            			<DefaultValues>
+                        		<Value>true</Value>
+	            		</DefaultValues>
+                	</AttributeSchema>
+                	<AttributeSchema name="iplanet-am-auth-impersonation-policy-id"
+                    		type="single"
+                    		syntax="string"
+                    		i18nKey="a503">
+            			<DefaultValues>
+                        		<Value>Enter the user id to impersonate?</Value>
+	            		</DefaultValues>
+                	</AttributeSchema>
+                	<AttributeSchema name="iplanet-am-auth-resource-set"
+                    		type="single"
+                    		syntax="string"
+                    		i18nKey="a504">
+            			<DefaultValues>
+                        		<Value>Resource Set</Value>
+	            		</DefaultValues>
+                	</AttributeSchema>
+           	      </SubSchema>
+            	  </Organization>
+		</Schema>
+	</Service>
+</ServicesConfiguration>
