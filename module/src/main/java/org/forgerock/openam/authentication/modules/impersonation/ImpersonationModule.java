@@ -411,10 +411,7 @@ public class ImpersonationModule extends AMLoginModule {
 			                     for (Object object : array) {
 			                         JSONObject obj =(JSONObject)object;
 			                         System.out.println("jsonarray-> "+obj);
-			                         
-			 // stringentity-> {"resources": ["http://ec2-54-67-72-146.us-west-1.compute.amazonaws.com:8080/openam"],"application":"iPlanetAMWebAgentService", "subject": {"ssoToken":"AQIC5wM2LY4SfcyO_yXJfVhQKl0V8Up-WpSq3gBjV8oLBQs.*AAJTSQACMDEAAlNLABQtNTQ0NjAyOTU0NDM3OTA2NjgxNg..*"}}
-			 //json/policies?_action=evaluate response-> [{"advices":{},"actions":{"POST":true,"GET":true},"resource":"http://ec2-54-67-72-146.us-west-1.compute.amazonaws.com:8080/openam","attributes":{"cn":["Javed Shah"],"xx":["yy"]}}]
-			 // jsonarray-> {"resource":"http:\/\/ec2-54-67-72-146.us-west-1.compute.amazonaws.com:8080\/openam","attributes":{"cn":["Javed Shah"],"xx":["yy"]},"advices":{},"actions":{"POST":true,"GET":true}}
+			 
 			                         		
 			                         JSONObject actions = (JSONObject) obj.get("actions");
 			                         Boolean actionGet = (Boolean) actions.get("GET");
