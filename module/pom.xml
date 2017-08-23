@@ -21,13 +21,13 @@
 
     <parent>
         <groupId>org.forgerock.openam</groupId>
-        <artifactId>openam-auth-impersonation-policy</artifactId>
-        <version>12.0.0-SNAPSHOT</version>
+        <artifactId>openam-auth-impersonation</artifactId>
+        <version>14.5.0-SNAPSHOT</version>
     </parent>
 
     <name>OpenAM Auth Impersonation Module</name>
-    <description>OpenAM Authentication Impersonation Policy</description>
-    <artifactId>openam-auth-impersonation-policy-module</artifactId>
+    <description>OpenAM Authentication Impersonation</description>
+    <artifactId>openam-auth-impersonation-module</artifactId>
     <packaging>jar</packaging>
 <dependencies>
 
@@ -41,6 +41,11 @@
 	<groupId>org.apache.httpcomponents</groupId>
 	<artifactId>httpcore</artifactId>
 	<version>4.3.2</version>
+</dependency>
+<dependency>
+    <groupId>javax.ws.rs</groupId>
+    <artifactId>javax.ws.rs-api</artifactId>
+    <version>2.0</version>
 </dependency>
                         
 <dependency>

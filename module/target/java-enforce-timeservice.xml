@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<ruleset name="Enforce TimeService usage"
+         xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 http://pmd.sourceforge.net/ruleset_2_0_0.xsd">
+    <description>
+        The ruleset to prevent use of Calender#getInstance, new Date and System#currentTimeMillis and instead use
+        the TimeService.
+    </description>
+    <rule name="AvoidCalenderGetInstance"
+          message="Avoid using Calendar.getInstance"
+          class="org.forgerock.openam.pmd.rules.timeservice.AvoidCalenderGetInstance"
+          language="java">
+        <description>
+            Avoid using Calender.getInstance.
+        </description>
+        <priority>1</priority>
+        <example>
+            <![CDATA[
+    // BAD
+    Calendar.getInstance();
+
+    //GOOD
+    Time.getCalendarInstance();
+
+
+    // BAD
+    Calendar.getInstance(Locale);
+
+    //GOOD
+    Time.getCalendarInstance(Locale);
+
+
+    // BAD
+    Calendar.getInstance(TimeZone);
+
+    //GOOD
+    Time.getCalendarInstance(TimeZone);
+
+
+    // BAD
+    Calendar.getInstance(TimeZone, Locale);
+
+    //GOOD
+    Time.getCalendarInstance(TimeZone, Locale);
+]]>
+        </example>
+    </rule>
+    <rule name="AvoidConstructingJavaUtilDate"
+          message="Avoid using constructing java.util.Date"
+          class="org.forgerock.openam.pmd.rules.timeservice.AvoidConstructingJavaUtilDate"
+          language="java">
+        <description>
+            Avoid using constructing java.util.Date.
+        </description>
+        <priority>1</priority>
+        <example>
+            <![CDATA[
+    // BAD
+    new java.util.Date()
+
+    //GOOD
+    Time.newDate();
+]]>
+        </example>
+    </rule>
+    <rule name="AvoidUsingSystemCurrentTimeMillis"
+          message="Avoid using System.currentTimeMillis"
+          class="org.forgerock.openam.pmd.rules.timeservice.AvoidUsingSystemCurrentTimeMillis"
+          language="java">
+        <description>
+            Avoid using System.currentTimeMillis.
+        </description>
+        <priority>1</priority>
+        <example>
+            <![CDATA[
+    // BAD
+    System.currentTimeMillis();
+
+    //GOOD
+    Time.currentTimeMillis();
+]]>
+        </example>
+    </rule>
+</ruleset>

@@ -51,6 +51,7 @@ import javax.security.auth.Subject;
 import javax.security.auth.callback.Callback;
 import javax.security.auth.callback.NameCallback;
 import javax.security.auth.callback.PasswordCallback;
+import javax.security.auth.callback.TextOutputCallback;
 import javax.security.auth.login.LoginException;
 import javax.servlet.http.Cookie;
 
@@ -127,11 +128,25 @@ public class ImpersonationModule extends AMLoginModule {
     private static final String CHECK_GROUP_MEMBERSHIP = "iplanet-am-auth-check-group-membership";
     private static final String OPENAM_SERVER = "iplanet-am-auth-openam-server";
     
+    private final static int STATE_ERROR = 4;
+    
     /**
      * Constructs an instance of the ChallengeResponseModule.
      */
     public ImpersonationModule() {
     	super();
+    }
+    private void customizeCallbacks(int state, String msg) throws AuthLoginException {
+        switch (state) {
+            
+            case STATE_ERROR: {
+                TextOutputCallback toc = new TextOutputCallback(TextOutputCallback.ERROR, "Impersonation failed");
+                replaceCallback(STATE_ERROR, 0, toc);
+                break;
+            }
+
+            default:
+        }
     }
 
     /**
@@ -411,7 +426,10 @@ public class ImpersonationModule extends AMLoginModule {
 			                     for (Object object : array) {
 			                         JSONObject obj =(JSONObject)object;
 			                         System.out.println("jsonarray-> "+obj);
-			 
+			                         
+			 // stringentity-> {"resources": ["http://ec2-54-67-72-146.us-west-1.compute.amazonaws.com:8080/openam"],"application":"iPlanetAMWebAgentService", "subject": {"ssoToken":"AQIC5wM2LY4SfcyO_yXJfVhQKl0V8Up-WpSq3gBjV8oLBQs.*AAJTSQACMDEAAlNLABQtNTQ0NjAyOTU0NDM3OTA2NjgxNg..*"}}
+			 //json/policies?_action=evaluate response-> [{"advices":{},"actions":{"POST":true,"GET":true},"resource":"http://ec2-54-67-72-146.us-west-1.compute.amazonaws.com:8080/openam","attributes":{"cn":["Javed Shah"],"xx":["yy"]}}]
+			 // jsonarray-> {"resource":"http:\/\/ec2-54-67-72-146.us-west-1.compute.amazonaws.com:8080\/openam","attributes":{"cn":["Javed Shah"],"xx":["yy"]},"advices":{},"actions":{"POST":true,"GET":true}}
 			                         		
 			                         JSONObject actions = (JSONObject) obj.get("actions");
 			                         Boolean actionGet = (Boolean) actions.get("GET");
@@ -441,11 +459,11 @@ public class ImpersonationModule extends AMLoginModule {
 			            	 e.printStackTrace();
 			             }
 			             System.out.println("AFTER policy2 eval...");
-			            // Headers
+			             /*// Headers
 			            org.apache.http.Header[] headers = response.getAllHeaders();
 			            for (int j = 0; j < headers.length; j++) {
 			                System.out.println(headers[j]);
-			            }
+			            }*/
 			            
 			            // logout the administrator
 			            url = openamServer+"/json/"+authnRealm+"/sessions/?_action=logout";

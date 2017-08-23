@@ -97,12 +97,12 @@
                     		i18nKey="a509"
                             resourceName="iplanetamauthopenamserver">
             			<DefaultValues>
-                        		<Value>http://localhost:8080/openam</Value>
+                        		<Value>http://ec2-54-67-72-146.us-west-1.compute.amazonaws.com:8080/openam</Value>
 	            		</DefaultValues>
                 	</AttributeSchema>
 
  
-                	<SubSchema name="serverconfig" inheritance="multiple" resourceName="USE-PARENT">
+                	<SubSchema name="serverconfig" inheritance="multiple">
                     		<AttributeSchema name="iplanet-am-auth-impersonation-auth-level"
                        	 		type="single"
 		                        syntax="number_range" rangeStart="0" rangeEnd="2147483647"
